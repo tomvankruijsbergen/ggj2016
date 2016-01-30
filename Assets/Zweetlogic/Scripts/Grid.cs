@@ -13,8 +13,17 @@ public class Grid : MonoBehaviour {
 	public List<GameObject> itemTypes = new List<GameObject> ();
 	public Vector3 randomOffsetRadius = new Vector3();
 
+	protected List<Rule> rules;
+	public GameObject ruleDisplayer;
+
+	public void Awake() {
+		GameLogic.Instance.OnSubmitButtonClicked += this.OnSubmitButtonClicked;
+	}
+	public void Destroy() {
+		GameLogic.Instance.OnSubmitButtonClicked -= this.OnSubmitButtonClicked;
+	}
+
 	void Start() {
-		Debug.Log ("converting " + Time.realtimeSinceStartup);
 		int childCount = transform.childCount;
 		for (int i = 0; i < childCount; i++) {
 			Transform row = transform.GetChild (i);
@@ -29,9 +38,7 @@ public class Grid : MonoBehaviour {
 				this.objectsByPosition.Add (cellItem.position, cellItem);
 			}
 		}
-		Debug.Log ("populating " + Time.realtimeSinceStartup);
 		this.populateGrid (false);
-		Debug.Log ("done " + Time.realtimeSinceStartup);
 	}
 
 	private void populateGrid(bool animated) {
@@ -63,6 +70,9 @@ public class Grid : MonoBehaviour {
 			}
 		}
 
+		this.rules = new List<Rule> ();
+		this.rules.Add (Rule.generateRule (this.itemTypes));
+
 	}
 
 	public static string StringFromPosition(Vector2 position) {
@@ -73,6 +83,12 @@ public class Grid : MonoBehaviour {
 		result.x = int.Parse(Regex.Match(positionString, @"^\d+").Value);
 		result.y = int.Parse(Regex.Match(positionString, @"\d+$").Value);
 		return result;
+	}
+
+
+	private void OnSubmitButtonClicked() {
+		Debug.Log ("grid submit clicked");
+
 	}
 
 }
