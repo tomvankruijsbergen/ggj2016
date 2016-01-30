@@ -45,7 +45,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\FireSize.cs" />
+     <Compile Include="Assets\GreenLit.cs" />
+     <Compile Include="Assets\Scripts\FireLight.cs" />
      <Compile Include="Assets\Scripts\Rotate.cs" />
+     <Compile Include="Assets\Scripts\SeanceController.cs" />
+     <Compile Include="Assets\Scripts\Spirit.cs" />
+     <Compile Include="Assets\Scripts\SpriteSheetNG.cs" />
+     <Compile Include="Assets\Scripts\util\Singleton.cs" />
+     <Compile Include="Assets\Takohi\Examples\SimpleIK\SeeTutorial.cs" />
+     <Compile Include="Assets\Takohi\SimpleIKSolver.cs" />
+     <Compile Include="Assets\Zweetlogic\Scripts\GameLogic.cs" />
+     <Compile Include="Assets\Zweetlogic\Scripts\Grid.cs" />
+     <Compile Include="Assets\Zweetlogic\Scripts\GridItem.cs" />
+     <Compile Include="Assets\Zweetlogic\Scripts\GridItemGraphic.cs" />
+     <Compile Include="Assets\Zweetlogic\Scripts\PixelMap.cs" />
+     <None Include="Assets\Shaders\CutoutShadowOnly.shader" />
+     <None Include="Assets\Shaders\ToonShadow.shader" />
+     <None Include="Assets\Takohi\Android-SimpleIK-Read-Me.txt" />
+     <None Include="Assets\Shaders\Fresnel.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
