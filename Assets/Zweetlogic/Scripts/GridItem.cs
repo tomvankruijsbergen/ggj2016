@@ -5,9 +5,9 @@ using System.Collections.Generic;
 public class GridItem : MonoBehaviour {
 
 	[HideInInspector] public Vector2 position;
+	[HideInInspector] public bool used = true;
 
-	private GridItemGraphic itemGraphic;
-	public bool used = true;
+	[HideInInspector] public GridItemGraphic itemGraphic;
 	public GameLogic.ItemStates state = GameLogic.ItemStates.Off;
 
 	public void setUsed(bool used) {
@@ -28,7 +28,7 @@ public class GridItem : MonoBehaviour {
 		newChild.transform.SetParent (transform, false);
 
 		// Sets the BoxCollider's center to the offset of the child.
-		// If this is changed to a SphereCollider, we have to update this.
+		// If this is changed to a SphereCollider, we have to update this here.
 		var collider = this.GetComponent<BoxCollider> ();
 		collider.center = randomOffset;
 

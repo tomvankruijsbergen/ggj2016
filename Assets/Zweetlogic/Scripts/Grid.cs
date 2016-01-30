@@ -92,7 +92,70 @@ public class Grid : MonoBehaviour {
 
 
 	private void OnSubmitButtonClicked() {
-		Debug.Log ("grid submit clicked");
+		// Todo: check whether it is actually THIS grid that should do the processing. 
+		// Maybe a submit button game object? Could do once we have multiple grids
+		this.processScore ();
+
+		this.populateGrid (true);
+	}
+	private void processScore () {
+		
+		var matches = new Dictionary<Vector2, Rule>();
+		var matchesWithoutState = new Dictionary<Vector2, Rule>();
+
+		/* For every rule, we check every item in the grid, that item being the top left anchor point of the rule.
+		 * For every item in the grid, we keep checking cells in the rule until we find something that doesn't add up.
+		 * If we don't find any irregularities, it's a perfect match. 
+		 * Alternatively, we can also find combinations that could have worked, but didn't: we save those too.
+		 */
+
+		foreach (var rule in this.rules) {
+			foreach (var cell in rule.pattern) {
+				Debug.Log (cell);
+			}
+			foreach (var item in this.objectsByPosition) {
+				if (item.Value.used == false) {
+					continue;
+				}
+				
+				var matchFound = true;
+				var matchFoundWithoutState = true;
+				foreach (var cell in rule.pattern) {
+					var cellPosition = item.Key + cell.Key;
+					var itemForCell = this.objectsByPosition [cellPosition];
+					if (!itemForCell || itemForCell.used == false) {
+						matchFound = false;
+						matchFoundWithoutState = false;
+						break;
+					}
+					if (itemForCell.itemGraphic.type != cell.Value.itemScript.type) {
+						matchFound = false;
+						matchFoundWithoutState = false;
+						break;
+					}
+					if (itemForCell.state != cell.Value.state) {
+						matchFound = false;
+					}
+				}
+				if (matchFound == true) {
+					matches.Add (item.Value.position, rule);
+				} else if (matchFoundWithoutState == true) {
+					matchesWithoutState.Add (item.Value.position, rule);
+				}
+
+			}
+				
+		}
+
+		Debug.Log ("=== MATCHES NO STATE");
+		foreach (var item in matchesWithoutState) {
+			Debug.Log (item.Key);
+		}
+		Debug.Log ("=== MATCHES");
+		foreach (var item in matches) {
+			Debug.Log (item.Key);
+		}
+
 
 	}
 
