@@ -3,6 +3,8 @@ using System.Collections;
 
 public class GridItemGraphic : MonoBehaviour {
 
+	public string type = "SET THIS";
+
 	public void makeHighlighted() {
 		Debug.Log ("highlight");
 	}

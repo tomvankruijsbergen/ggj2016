@@ -10,10 +10,13 @@ public class PixelMap {
 		int total = colors.Length;
 		for (int i = 0; i < total; i++) {
 			Color32 color = colors [i];
-
+		
 			Vector2 position = new Vector2 ();
 			position.x = i % texture.width;
-			position.y = Mathf.FloorToInt(i / texture.width);
+			/* This weird texture.width - 1 hack is there because suddenly getPixels32 seems to
+			 * (correctly?) have reversed the pixel order.
+			 */
+			position.y = texture.width - 1 - Mathf.FloorToInt(i / texture.width);
 
 			/* 	This sets enabled to tiles that are BLACK (rather than white). 
 				If you want to reverse this, reverse the operator.
