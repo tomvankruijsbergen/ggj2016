@@ -73,6 +73,11 @@ public class Grid : MonoBehaviour {
 		this.rules = new List<Rule> ();
 		this.rules.Add (Rule.generateRule (this.itemTypes));
 
+		if (this.ruleDisplayer) {
+			var r = this.ruleDisplayer.GetComponent<RuleDisplay> ();
+			r.rulesUpdated (this.rules);
+		}
+
 	}
 
 	public static string StringFromPosition(Vector2 position) {
