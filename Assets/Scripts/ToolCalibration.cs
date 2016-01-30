@@ -4,7 +4,6 @@ using UnityEngine.VR;
 
 public class ToolCalibration : MonoBehaviour
 {
-
     void Start()
     {
         Invoke("UpdatePosition", 1f);
@@ -20,8 +19,6 @@ public class ToolCalibration : MonoBehaviour
         {
             Invoke("UpdatePosition", 0.2f);           
         }
-
-
     }
     void UpdatePosition()
     {

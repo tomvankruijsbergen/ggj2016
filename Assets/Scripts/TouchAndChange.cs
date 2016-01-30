@@ -6,6 +6,7 @@ public class TouchAndChange : MonoBehaviour
     private GameObject touchedItem;
     public int id;
     private bool canChange = true;
+    private float selectedScale = 0.5f;
 
     void Start()
     {
@@ -30,6 +31,7 @@ public class TouchAndChange : MonoBehaviour
         {
             //will be makeHighlighted()
             touchedItem = other.gameObject;
+            touchedItem.transform.localScale = new Vector3(selectedScale, selectedScale, selectedScale);
         }
     }
     void OnTriggerExit(Collider other)
@@ -37,7 +39,8 @@ public class TouchAndChange : MonoBehaviour
         if (touchedItem == other.gameObject)
         {
             //will be makeHighlighted()
+            touchedItem.transform.localScale = new Vector3(1, 1, 1);
             touchedItem = null;
         }
-    }    
+    }
 }
