@@ -13,7 +13,7 @@ public class GreenLit : MonoBehaviour {
 
 		foreach (Material matt in GetComponent<Renderer>().materials) {
 			Debug.Log ("found matt: " + matt.name);
-			if (matt.name == "GreenLit (Instance)") {
+			if (matt.name == "green (Instance)") {
 				material = matt;
 				Debug.Log ("found matt: " + material);
 				baseColor = material.GetColor ("_EmissionColor");

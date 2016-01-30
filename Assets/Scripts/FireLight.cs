@@ -28,7 +28,7 @@ public class FireLight : MonoBehaviour {
 	void Update () {
 
 		intensity = minIntensity + ((maxIntensity - minIntensity) * PlayerPrefs.GetFloat ("intensity"));
-		light.intensity += (targetIntensity - light.intensity) * 0.3f;
+		light.intensity += (targetIntensity - light.intensity) * 0.6f;
 		transform.position = Vector3.Lerp (transform.position, basePos + targetPos, 2.0f * Time.deltaTime);
 		t += Time.deltaTime;
 		if (t > interval) {
