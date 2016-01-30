@@ -1,0 +1,34 @@
+body, div {
+    margin:0;
+    padding:0;
+    border:0;
+}
+
+.gridcontainer-1 {
+    width:100%;
+    box-sizing: border-box;
+    padding-top:10px;
+    padding-left:10px;
+    text-align:left;
+}
+.gridimage {
+    margin: 5px;
+    padding: 0;
+    border: 0;
+}
+
+.rulescontainer-1 {
+    position:fixed;
+    right:10px;
+    top:10px;
+    width:300px;
+    background-color: #eee;
+    text-align:center;
+}
+
+.errorcontainer-1 {
+    position:fixed;
+    width:100%;
+    bottom:10px;
+    text-align: center;
+}
