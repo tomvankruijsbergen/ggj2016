@@ -16,7 +16,7 @@ public class TouchAndChange : MonoBehaviour
     {
         if (touchedItem != null && SixenseInput.Controllers[id].Trigger == 1 && canChange)
         {
-            touchedItem.GetComponent<ChangePuzzleItem>().ChangeStyle(); //will be toggleState()
+            touchedItem.GetComponent<GridItem>().toggleState();
             canChange = false;
         }
         if (SixenseInput.Controllers[id].Trigger == 0 && !canChange)
