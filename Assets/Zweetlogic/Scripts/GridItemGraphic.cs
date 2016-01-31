@@ -16,6 +16,9 @@ public class GridItemGraphic : MonoBehaviour {
 	public AudioClip clipOn;
 	public AudioClip clipOff;
 
+	public AudioClip audioStateOn;
+	public AudioClip audioStateOff;
+
 	private Vector3 baseScale;
 
 	public bool isActive(){
@@ -33,18 +36,25 @@ public class GridItemGraphic : MonoBehaviour {
 
 	public void changeToState(GameLogic.ItemStates state, bool animated) {
 		switch(state){
-			case GameLogic.ItemStates.On:
-				makeHighlighted ();
-				break;
+		case GameLogic.ItemStates.On:
+			makeHighlighted ();
+			if (animated == true && this.audioStateOn) {
+				source.clip = audioStateOn;
+				source.Play ();
+			}
+			break;
 		case GameLogic.ItemStates.Off:
-				makeUnhighlighted();
-				break;
+			makeUnhighlighted();
+			if (animated == true &&this.audioStateOff) {
+				source.clip = audioStateOff;
+				source.Play ();
+			}
+			break;
 		}
 	}
 
-	void Start(){
+	void Awake(){
 		source = GetComponent<AudioSource> ();
-
 	}
 
 	public void Show(){

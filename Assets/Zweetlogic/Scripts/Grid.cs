@@ -84,7 +84,7 @@ public class Grid : MonoBehaviour {
 				item.Value.changeToType (itemType, animated, randomOffset);
 					
 				GameLogic.ItemStates randomState = (GameLogic.ItemStates)Mathf.FloorToInt (Random.Range (0, (int)GameLogic.ItemStates._All));
-				item.Value.changeToState (randomState, animated);
+				item.Value.changeToState (randomState, false);
 			}
 		}
 
