@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 235cb2ff4c99a4c30bd655cd87cae7a1
-timeCreated: 1454193184
+guid: cd1d5a9712e184295a33d778f61678c7
+timeCreated: 1454201529
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: handItem_active
+    4300000: Flask_Inactive
   materials:
     importMaterials: 1
     materialName: 0
@@ -39,7 +39,7 @@ ModelImporter:
     addColliders: 0
     importBlendShapes: 1
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0

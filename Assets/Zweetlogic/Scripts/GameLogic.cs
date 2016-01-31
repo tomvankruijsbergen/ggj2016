@@ -10,6 +10,7 @@ public class GameLogic : Singleton<GameLogic> {
 
 	public void sendSubmitEvent() {
 		// zzzz why C# why
+
 		this.OnSubmitButtonClicked();
 	}
 

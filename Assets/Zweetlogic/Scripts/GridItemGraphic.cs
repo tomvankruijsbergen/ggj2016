@@ -3,16 +3,39 @@ using System.Collections;
 
 public class GridItemGraphic : MonoBehaviour {
 
+	public GameObject highlightModel;
+	public GameObject unHighLightModel;
+
 	public string type = "SET THIS";
 
 	public void makeHighlighted() {
-		Debug.Log ("highlight");
+		highlightModel.SetActive (true);
+		unHighLightModel.SetActive (false);
 	}
 	public void makeUnhighlighted() {
-		Debug.Log ("UN-highlight");
+		highlightModel.SetActive (false);
+		unHighLightModel.SetActive (true);
 	}
 
 	public void changeToState(GameLogic.ItemStates state, bool animated) {
-		// 
+		switch(state){
+			case GameLogic.ItemStates.On:
+				makeHighlighted ();
+				break;
+		case GameLogic.ItemStates.Off:
+				makeUnhighlighted();
+				break;
+		}
+	}
+
+
+	public void Show(){
+
+		//do random popup animation
+	}
+
+	public void Hide(){
+	
+		//
 	}
 }

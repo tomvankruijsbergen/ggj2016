@@ -25,7 +25,7 @@ public class GreenLit : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-		intensity = PlayerPrefs.GetFloat("intensity");
+		intensity = PlayerPrefs.GetFloat("intensity") + PlayerPrefs.GetFloat("glowIntensity");
 		c.r = intensity * baseColor.r;
 		c.g = intensity * baseColor.g;
 		c.b = intensity * baseColor.b;
