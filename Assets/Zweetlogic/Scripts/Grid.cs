@@ -16,6 +16,14 @@ public class Grid : MonoBehaviour {
 	protected List<Rule> rules;
 	public GameObject ruleDisplayer;
 
+	// This is here so the grid can send the score script messages, and then the GameLogic can handle broadcasting the score.
+	// The idea is that the scoreScript is always the one that sends score changes to the GameLogic and noone else.
+	public Score scoreScript;
+
+	public float gridCompleteDisappearTime = 0.5f;
+
+	private bool gridEnabled = true;
+
 	public void Awake() {
 		GameLogic.Instance.OnSubmitButtonClicked += this.OnSubmitButtonClicked;
 	}
@@ -41,8 +49,13 @@ public class Grid : MonoBehaviour {
 		this.populateGrid (false);
 	}
 
+	// This function gets invoked.
+	private void populateGridAnimated() {
+		this.populateGrid (true);
+	}
 	private void populateGrid(bool animated) {
-		int randomIndex = Mathf.FloorToInt (Random.Range (0, this.gridSetups.Count));
+		// NOTICE: always just takes the first one.
+		int randomIndex = 0;//Mathf.FloorToInt (Random.Range (0, this.gridSetups.Count));
 		Texture2D texture = this.gridSetups [randomIndex] as Texture2D;
 		Dictionary<Vector2, bool> pixelData = this.pixelMap.pixelmapFromTexture (texture);
 
@@ -72,11 +85,20 @@ public class Grid : MonoBehaviour {
 
 		this.rules = new List<Rule> ();
 		this.rules.Add (Rule.generateRule (this.itemTypes));
+		//this.rules.Add (Rule.generateRule (this.itemTypes));
+
+		foreach (var rule in this.rules) {
+			foreach (var cell in rule.pattern) {
+				Debug.Log (cell);
+			}
+		}
 
 		if (this.ruleDisplayer) {
 			var r = this.ruleDisplayer.GetComponent<RuleDisplay> ();
 			r.rulesUpdated (this.rules);
 		}
+
+		this.gridEnabled = true;
 
 	}
 
@@ -92,11 +114,14 @@ public class Grid : MonoBehaviour {
 
 
 	private void OnSubmitButtonClicked() {
+		if (this.gridEnabled == false)
+			return;
+		this.gridEnabled = false;
 		// Todo: check whether it is actually THIS grid that should do the processing. 
-		// Maybe a submit button game object? Could do once we have multiple grids
+		// Maybe a submit button game object on this grid? Could do once we have multiple grids
 		this.processScore ();
 
-		this.populateGrid (true);
+		Invoke("populateGridAnimated", this.gridCompleteDisappearTime);
 	}
 	private void processScore () {
 		
@@ -110,9 +135,11 @@ public class Grid : MonoBehaviour {
 		 */
 
 		foreach (var rule in this.rules) {
+			/*
 			foreach (var cell in rule.pattern) {
 				Debug.Log (cell);
 			}
+			*/
 			foreach (var item in this.objectsByPosition) {
 				if (item.Value.used == false) {
 					continue;
@@ -147,15 +174,21 @@ public class Grid : MonoBehaviour {
 				
 		}
 
-		Debug.Log ("=== MATCHES NO STATE");
+		//Debug.Log ("=== MATCHES D-F " + matches.Count + " - " + matchesWithoutState.Count);
+
+		Debug.Log ("=== MATCHES WITHOUT STATE");
 		foreach (var item in matchesWithoutState) {
 			Debug.Log (item.Key);
 		}
-		Debug.Log ("=== MATCHES");
+		/*Debug.Log ("=== MATCHES");
 		foreach (var item in matches) {
 			Debug.Log (item.Key);
 		}
+		*/
 
+		if (this.scoreScript) {
+			this.scoreScript.UpdateScore (matches, matchesWithoutState);
+		}
 
 	}
 
