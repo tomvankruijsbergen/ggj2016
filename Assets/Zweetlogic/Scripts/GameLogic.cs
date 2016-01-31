@@ -6,9 +6,6 @@ public class GameLogic : Singleton<GameLogic> {
 
 	public enum ItemStates { Off = 0, On = 1, _All = 2 };
 
-	// The scoreScript attaches itself to the singleton. 
-	public Score scoreScript;
-
 	protected GameLogic() {}
 
 	public void sendSubmitEvent() {
@@ -17,8 +14,8 @@ public class GameLogic : Singleton<GameLogic> {
 	}
 
 	private int debugcounter = 0;
+	// zzzz why C# why
 	public void sendScoreChangedEvent(float newScore) {
-		// zzzz why C# why
 		debugcounter++;
 		if (newScore > 0 && debugcounter > 100) {
 			debugcounter = 0;
