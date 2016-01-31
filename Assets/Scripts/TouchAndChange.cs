@@ -6,6 +6,7 @@ public class TouchAndChange : MonoBehaviour
     private GameObject touchedItem;
     public int id;
     private bool canChange = true;
+    public AudioClip grabItemSound;
 
     void Start()
     {
@@ -14,9 +15,14 @@ public class TouchAndChange : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+        }
         if (touchedItem != null && SixenseInput.Controllers[id].Trigger == 1 && canChange)
         {
-            touchedItem.GetComponent<GridItem>().toggleState();
+            transform.parent.GetComponent<Animator>().SetTrigger("select");
+            //touchedItem.GetComponent<GridItem>().toggleState();
+            //GetComponent<AudioSource>().PlayOneShot(grabItemSound, 1f);
             canChange = false;
         }
         if (SixenseInput.Controllers[id].Trigger == 0 && !canChange)
