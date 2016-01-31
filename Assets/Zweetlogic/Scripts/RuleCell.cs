@@ -22,7 +22,13 @@ public class RuleCell {
 		return this.GetType().Name + " : " + this.itemScript.type + " - " + this.state;
 	}
 
-
+	public GameObject getSprite() {
+		if (this.state == GameLogic.ItemStates.Off) {
+			return this.itemScript.spriteOff;
+		} else {
+			return this.itemScript.spriteOn;
+		}
+	}
 	public GridItemGraphic itemScript;
 
 	public GameLogic.ItemStates state;
