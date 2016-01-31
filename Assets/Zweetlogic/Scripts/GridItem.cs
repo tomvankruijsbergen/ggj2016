@@ -34,6 +34,8 @@ public class GridItem : MonoBehaviour {
 
 		GridItemGraphic itemGraphic = newChild.GetComponent<GridItemGraphic> ();
 		this.itemGraphic = itemGraphic;
+
+		itemGraphic.Show ();
 	}
 
 	public void changeToState(GameLogic.ItemStates state, bool animated) {

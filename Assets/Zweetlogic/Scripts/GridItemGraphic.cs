@@ -44,15 +44,15 @@ public class GridItemGraphic : MonoBehaviour {
 
 	void Start(){
 		source = GetComponent<AudioSource> ();
-		baseScale = transform.localScale;
+
 	}
 
 	public void Show(){
 
-		transform.localScale = Vector3.zero;
+		//transform.localScale = Vector3.zero;
 		float d = Random.value;
-		transform.DOScale (baseScale, 0.5f).SetEase (Ease.OutBack).SetDelay (d).OnComplete(Activate);
-		transform.DOShakeRotation(0.5f, 10f, 8, 50).SetDelay(d);
+		transform.DOScale (Vector3.zero, 0.5f).From().SetEase (Ease.OutBack).SetDelay (d).OnComplete(Activate);
+		transform.DOShakeRotation(0.5f, 40f, 8, 50).SetDelay(d);
 		if (clipOn != null) {
 			source.clip = clipOn;
 			source.Play ();
