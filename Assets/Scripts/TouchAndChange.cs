@@ -38,11 +38,15 @@ public class TouchAndChange : MonoBehaviour
     {
         if (other.tag.Equals("PuzzleItem"))
         {
-            //will be makeHighlighted()
-            touchedItem = other.gameObject;
+			if (other.gameObject.GetComponent<GridItem> ().itemGraphic.isActive ()) {
+				//will be makeHighlighted()
+	
+				touchedItem = other.gameObject;
+			}
         }
         if (other.tag.Equals("LittleDrum"))
         {
+			
             //Debug.Log("Touching Drum");
             drum = other.gameObject;
             touchingDrum = true;
@@ -50,11 +54,19 @@ public class TouchAndChange : MonoBehaviour
     }
     void OnTriggerExit(Collider other)
     {
+		if (other.tag.Equals ("PuzzleItem")) {
+
+			if (other.gameObject.GetComponent<GridItem> ().itemGraphic.isActive ()) {
+				other.gameObject.GetComponent<GridItem> ().itemGraphic.RollOut ();
+			}
+		}
+
         if (touchedItem == other.gameObject)
-        {
-            //will be makeHighlighted()
-            touchedItem = null;
-        }
+		{
+				//will be makeHighlighted()
+				touchedItem = null;
+		}
+
         if (other.tag.Equals("LittleDrum"))
         {
             touchingDrum = false;

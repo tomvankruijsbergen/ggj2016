@@ -70,16 +70,22 @@ public class GridItemGraphic : MonoBehaviour {
 	 * 	2 = correct
 	 */
 	public void Hide(int pointResult){
+		
 		allowInteraction = false;
 
 		if (pointResult == 2) {
-			//stay and float into the fire
 
+			//stay and float into the fire
+			Vector3 randomOffset = Vector3.one * Random.value * 0.1f;
+			transform.DOMove (new Vector3(0.052f, 1f, 2.433f) + randomOffset, 1f).SetEase (Ease.InOutCirc).SetDelay(1f + (Random.value)).OnComplete(IntoTheFire);
+		
 		} else if (pointResult == 1) {
 			// whatever
+			transform.DOShakeRotation(2f, 40,7,40).OnComplete(Fall).SetDelay(1f + Random.value * 0.3f);
+
 		} else {
 			//hide
-			transform.DOScale(Vector3.zero, 0.4f).SetEase(Ease.InExpo).SetDelay(Random.value * 0.5f);
+			transform.DOScale(new Vector3(0,0,0), 0.4f).SetEase(Ease.InExpo).SetDelay(Random.value * 0.5f);
 		}
 
 
@@ -87,6 +93,22 @@ public class GridItemGraphic : MonoBehaviour {
 			source.clip = clipOff;
 			source.Play ();
 		}
+	}
+
+	void Fall(){
+
+		transform.DOScale (new Vector3 (0, 0, 0), 0.4f).SetEase (Ease.InExpo);
+	}
+
+	void IntoTheFire(){
+		Vector3 endPos = Vector3.zero;
+		endPos.y = 0.6f;
+		transform.DOMove (endPos, 1.5f).SetEase (Ease.InExpo).OnComplete(DoFireParticle);
+	}
+
+	void DoFireParticle(){
+		
+		//awesome explosion
 	}
 
 	public void RollOver(){
