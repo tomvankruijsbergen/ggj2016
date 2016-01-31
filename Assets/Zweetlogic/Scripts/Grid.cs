@@ -130,19 +130,30 @@ public class Grid : MonoBehaviour {
 		}
 
 		var allPointsMatched = new Dictionary<Vector2, bool> ();
+		var allPointsIncorrectlyMatched = new Dictionary<Vector2, bool> ();
+
 		foreach (var score in scoreResult.matches) {
 			foreach (var cell in score.Value.pattern) {
 				Vector2 key = cell.Key + score.Key;
 				if (allPointsMatched.ContainsKey(key) == false) allPointsMatched.Add (key, true);
 			}
 		}
+
+		foreach (var score in scoreResult.matchesWithoutState) {
+			foreach (var cell in score.Value.pattern) {
+				Vector2 key = cell.Key + score.Key;
+				if (allPointsIncorrectlyMatched.ContainsKey(key) == false) allPointsIncorrectlyMatched.Add (key, true);
+			}
+		}
 		foreach (var item in this.objectsByPosition) {
 			if (item.Value.used == false)
 				continue;
 			if (allPointsMatched.ContainsKey (item.Key)) {
-				item.Value.Hide(true);
+				item.Value.Hide(2);
+			} else if (allPointsIncorrectlyMatched.ContainsKey(item.Key)) {
+				item.Value.Hide(1);
 			} else {
-				item.Value.Hide(false);
+				item.Value.Hide(0);
 			}
 		}
 		Invoke("populateGridAnimated", this.gridCompleteDisappearTime);

@@ -15,8 +15,8 @@ public class GridItem : MonoBehaviour {
 		this.gameObject.SetActive (used);
 	}
 
-	public void Hide(bool isPoint) {
-		itemGraphic.Hide (isPoint)	;
+	public void Hide(int pointResult) {
+		itemGraphic.Hide (pointResult)	;
 	}
 
 

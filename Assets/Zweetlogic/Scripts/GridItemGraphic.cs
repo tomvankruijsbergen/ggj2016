@@ -65,12 +65,18 @@ public class GridItemGraphic : MonoBehaviour {
 
 	bool allowInteraction = false;
 
-	public void Hide(bool isPoint){
+	/*	0 = unimportant
+	 * 	1 = incorrect
+	 * 	2 = correct
+	 */
+	public void Hide(int pointResult){
 		allowInteraction = false;
 
-		if (isPoint) {
+		if (pointResult == 2) {
 			//stay and float into the fire
 
+		} else if (pointResult == 1) {
+			// whatever
 		} else {
 			//hide
 			transform.DOScale(Vector3.zero, 0.4f).SetEase(Ease.InExpo).SetDelay(Random.value * 0.5f);
