@@ -15,6 +15,11 @@ public class GridItem : MonoBehaviour {
 		this.gameObject.SetActive (used);
 	}
 
+	public void Hide(bool isPoint) {
+		itemGraphic.Hide (isPoint)	;
+	}
+
+
 	public void changeToType(GameObject gameObject, bool animated, Vector3 randomOffset) {
 		
 		this.itemGraphic = null;
@@ -62,6 +67,8 @@ public class GridItem : MonoBehaviour {
 	}
 
 	public void toggleState() {
+		if (itemGraphic != null && itemGraphic.isActive() == false)
+			return;
 		GameLogic.ItemStates newState;
 		if (this.state == GameLogic.ItemStates.Off) {
 			newState = GameLogic.ItemStates.On;
