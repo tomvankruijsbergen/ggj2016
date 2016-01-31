@@ -19,9 +19,6 @@ public class Rule {
 		pattern.Add (new Vector2 (), RuleCell.generateRuleCell (itemTypes));
 		pattern.Add (secondPosition, RuleCell.generateRuleCell (itemTypes));
 
-		//Debug.Log(new Vector2() + " ----- " + pattern[new Vector2()]);
-		//Debug.Log(secondPosition + " ----- " + pattern[secondPosition]);
-
 		var rule = new Rule ();
 		rule.pattern = pattern;
 		return rule;
