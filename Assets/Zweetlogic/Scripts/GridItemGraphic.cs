@@ -7,7 +7,8 @@ public class GridItemGraphic : MonoBehaviour {
 	public GameObject unHighLightModel;
 
 	public string type = "SET THIS";
-	public Sprite sprite;
+	public GameObject spriteOn;
+	public GameObject spriteOff;
 
 	public void makeHighlighted() {
 		highlightModel.SetActive (true);
