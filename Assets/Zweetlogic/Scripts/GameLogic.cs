@@ -25,7 +25,7 @@ public class GameLogic : Singleton<GameLogic> {
 		if (newIntensity > 1)
 			newIntensity = 1;
 		//if(useIntensity)
-		//	PlayerPrefs.SetFloat("intensity", newIntensity);
+			PlayerPrefs.SetFloat("intensity", newIntensity);
 		if (this.OnScoreChanged != null) this.OnScoreChanged(newScore);
 	}
 

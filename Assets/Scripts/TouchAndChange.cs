@@ -45,8 +45,7 @@ public class TouchAndChange : MonoBehaviour
 			}
         }
         if (other.tag.Equals("LittleDrum"))
-        {
-			
+        {			
             //Debug.Log("Touching Drum");
             drum = other.gameObject;
             touchingDrum = true;

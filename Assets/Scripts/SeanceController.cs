@@ -8,7 +8,7 @@ public class SeanceController : MonoBehaviour {
 	public float intensity;
 
 
-	private bool overrideIntensity = true;
+	public bool overrideIntensity = false;
 	// Use this for initialization
 	void Start () {
 	
@@ -20,8 +20,8 @@ public class SeanceController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-		if(overrideIntensity)
-			PlayerPrefs.SetFloat ("intensity", intensity);
+		//if(overrideIntensity)
+			//PlayerPrefs.SetFloat ("intensity", intensity);
 
 		//ses sinus intensity for purplish glow effect
 		glowIntensity =  (Mathf.Sin(Time.timeSinceLevelLoad * (intensity*10f)) * 0.5f)* (intensity * 0.2f);

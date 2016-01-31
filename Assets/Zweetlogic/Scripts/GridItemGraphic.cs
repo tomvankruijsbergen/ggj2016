@@ -20,6 +20,11 @@ public class GridItemGraphic : MonoBehaviour {
 	public AudioClip audioStateOff;
 
 	private Vector3 baseScale;
+    void Start()
+    {
+
+        baseScale = transform.localScale;
+    }
 
 	public bool isActive(){
 		return allowInteraction;
@@ -122,17 +127,17 @@ public class GridItemGraphic : MonoBehaviour {
 	}
 
 	public void RollOver(){
-		if (!allowInteraction)
+		//if (!allowInteraction)
 			return;
 		//scale up
-		transform.DOScale(baseScale * 1.2f, 0.4f).SetEase(Ease.OutBack);
+		//transform.DOScale(baseScale * 1.2f, 0.4f).SetEase(Ease.OutBack);
 
 	}
 
 	public void RollOut(){
-		if (!allowInteraction)
+		//if (!allowInteraction)
 			return;
 		//scale down
-		transform.DOScale(baseScale, 0.8f).SetEase(Ease.OutExpo);
+		//transform.DOScale(baseScale, 0.8f).SetEase(Ease.OutExpo);
 	}
 }
