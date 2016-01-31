@@ -26,4 +26,14 @@ public class SubmitButton : MonoBehaviour {
 			source.Play ();
 		}
 	}
+    public void HitDrum()
+    {
+        Debug.Log("Drum Hit");
+        GameLogic.Instance.sendSubmitEvent();
+
+        if (source != null)
+        {
+            source.Play();
+        }
+    }
 }
