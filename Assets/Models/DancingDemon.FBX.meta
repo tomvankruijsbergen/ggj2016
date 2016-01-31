@@ -1,0 +1,291 @@
+fileFormatVersion: 2
+guid: 1ad8ea3a0ecf345f38bbf45ce0396257
+timeCreated: 1454242210
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Base Human
+    100002: Base HumanHead
+    100004: Base HumanLCalf
+    100006: Base HumanLCollarbone
+    100008: Base HumanLFoot
+    100010: Base HumanLForearm
+    100012: Base HumanLPalm
+    100014: Base HumanLPlatform
+    100016: Base HumanLThigh
+    100018: Base HumanLUpperarm
+    100020: Base HumanNeck
+    100022: Base HumanPelvis
+    100024: Base HumanRCalf
+    100026: Base HumanRCollarbone
+    100028: Base HumanRFoot
+    100030: Base HumanRForearm
+    100032: Base HumanRibcage
+    100034: Base HumanRPalm
+    100036: Base HumanRPlatform
+    100038: Base HumanRThigh
+    100040: Base HumanRUpperarm
+    100042: Base HumanSpine
+    100044: //RootNode
+    100046: Line001
+    100048: Line002
+    100050: Line003
+    100052: Line004
+    100054: Line005
+    100056: Line006
+    100058: Line007
+    100060: Line008
+    100062: Line009
+    100064: Line010
+    100066: Line011
+    100068: Line012
+    400000: Base Human
+    400002: Base HumanHead
+    400004: Base HumanLCalf
+    400006: Base HumanLCollarbone
+    400008: Base HumanLFoot
+    400010: Base HumanLForearm
+    400012: Base HumanLPalm
+    400014: Base HumanLPlatform
+    400016: Base HumanLThigh
+    400018: Base HumanLUpperarm
+    400020: Base HumanNeck
+    400022: Base HumanPelvis
+    400024: Base HumanRCalf
+    400026: Base HumanRCollarbone
+    400028: Base HumanRFoot
+    400030: Base HumanRForearm
+    400032: Base HumanRibcage
+    400034: Base HumanRPalm
+    400036: Base HumanRPlatform
+    400038: Base HumanRThigh
+    400040: Base HumanRUpperarm
+    400042: Base HumanSpine
+    400044: //RootNode
+    400046: Line001
+    400048: Line002
+    400050: Line003
+    400052: Line004
+    400054: Line005
+    400056: Line006
+    400058: Line007
+    400060: Line008
+    400062: Line009
+    400064: Line010
+    400066: Line011
+    400068: Line012
+    2300000: Line001
+    2300002: Line002
+    2300004: Line003
+    2300006: Line004
+    2300008: Line005
+    2300010: Line006
+    2300012: Line007
+    2300014: Line008
+    2300016: Line009
+    2300018: Line010
+    2300020: Line011
+    2300022: Line012
+    3300000: Line001
+    3300002: Line002
+    3300004: Line003
+    3300006: Line004
+    3300008: Line005
+    3300010: Line006
+    3300012: Line007
+    3300014: Line008
+    3300016: Line009
+    3300018: Line010
+    3300020: Line011
+    3300022: Line012
+    4300000: Line007
+    4300002: Line006
+    4300004: Line009
+    4300006: Line008
+    4300008: Line001
+    4300010: Line002
+    4300012: Line003
+    4300014: Line012
+    4300016: Line011
+    4300018: Line010
+    4300020: Line005
+    4300022: Line004
+    7400000: DancingDemon
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: DancingDemon
+      takeName: DancingDemon
+      firstFrame: 0
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Base Human
+        weight: 1
+      - path: Base HumanLPlatform
+        weight: 1
+      - path: Base HumanPelvis
+        weight: 1
+      - path: Base HumanPelvis/Base HumanLThigh
+        weight: 1
+      - path: Base HumanPelvis/Base HumanLThigh/Base HumanLCalf
+        weight: 1
+      - path: Base HumanPelvis/Base HumanLThigh/Base HumanLCalf/Base HumanLFoot
+        weight: 1
+      - path: Base HumanPelvis/Base HumanLThigh/Base HumanLCalf/Line007
+        weight: 1
+      - path: Base HumanPelvis/Base HumanLThigh/Line006
+        weight: 1
+      - path: Base HumanPelvis/Base HumanRThigh
+        weight: 1
+      - path: Base HumanPelvis/Base HumanRThigh/Base HumanRCalf
+        weight: 1
+      - path: Base HumanPelvis/Base HumanRThigh/Base HumanRCalf/Base HumanRFoot
+        weight: 1
+      - path: Base HumanPelvis/Base HumanRThigh/Base HumanRCalf/Line009
+        weight: 1
+      - path: Base HumanPelvis/Base HumanRThigh/Line008
+        weight: 1
+      - path: Base HumanPelvis/Base HumanSpine
+        weight: 1
+      - path: Base HumanPelvis/Base HumanSpine/Base HumanRibcage
+        weight: 1
+      - path: Base HumanPelvis/Base HumanSpine/Base HumanRibcage/Base HumanLCollarbone
+        weight: 1
+      - path: Base HumanPelvis/Base HumanSpine/Base HumanRibcage/Base HumanLCollarbone/Base
+          HumanLUpperarm
+        weight: 1
+      - path: Base HumanPelvis/Base HumanSpine/Base HumanRibcage/Base HumanLCollarbone/Base
+          HumanLUpperarm/Base HumanLForearm
+        weight: 1
+      - path: Base HumanPelvis/Base HumanSpine/Base HumanRibcage/Base HumanLCollarbone/Base
+          HumanLUpperarm/Base HumanLForearm/Base HumanLPalm
+        weight: 1
+      - path: Base HumanPelvis/Base HumanSpine/Base HumanRibcage/Base HumanLCollarbone/Base
+          HumanLUpperarm/Base HumanLForearm/Base HumanLPalm/Line001
+        weight: 1
+      - path: Base HumanPelvis/Base HumanSpine/Base HumanRibcage/Base HumanLCollarbone/Base
+          HumanLUpperarm/Base HumanLForearm/Line002
+        weight: 1
+      - path: Base HumanPelvis/Base HumanSpine/Base HumanRibcage/Base HumanLCollarbone/Base
+          HumanLUpperarm/Line003
+        weight: 1
+      - path: Base HumanPelvis/Base HumanSpine/Base HumanRibcage/Base HumanNeck
+        weight: 1
+      - path: Base HumanPelvis/Base HumanSpine/Base HumanRibcage/Base HumanNeck/Base
+          HumanHead
+        weight: 1
+      - path: Base HumanPelvis/Base HumanSpine/Base HumanRibcage/Base HumanNeck/Base
+          HumanHead/Line005
+        weight: 1
+      - path: Base HumanPelvis/Base HumanSpine/Base HumanRibcage/Base HumanRCollarbone
+        weight: 1
+      - path: Base HumanPelvis/Base HumanSpine/Base HumanRibcage/Base HumanRCollarbone/Base
+          HumanRUpperarm
+        weight: 1
+      - path: Base HumanPelvis/Base HumanSpine/Base HumanRibcage/Base HumanRCollarbone/Base
+          HumanRUpperarm/Base HumanRForearm
+        weight: 1
+      - path: Base HumanPelvis/Base HumanSpine/Base HumanRibcage/Base HumanRCollarbone/Base
+          HumanRUpperarm/Base HumanRForearm/Base HumanRPalm
+        weight: 1
+      - path: Base HumanPelvis/Base HumanSpine/Base HumanRibcage/Base HumanRCollarbone/Base
+          HumanRUpperarm/Base HumanRForearm/Base HumanRPalm/Line012
+        weight: 1
+      - path: Base HumanPelvis/Base HumanSpine/Base HumanRibcage/Base HumanRCollarbone/Base
+          HumanRUpperarm/Base HumanRForearm/Line011
+        weight: 1
+      - path: Base HumanPelvis/Base HumanSpine/Base HumanRibcage/Base HumanRCollarbone/Base
+          HumanRUpperarm/Line010
+        weight: 1
+      - path: Base HumanPelvis/Base HumanSpine/Base HumanRibcage/Line004
+        weight: 1
+      - path: Base HumanRPlatform
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
