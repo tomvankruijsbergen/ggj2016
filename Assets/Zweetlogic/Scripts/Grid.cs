@@ -3,6 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
+public struct GridScoreResult {
+	public Dictionary<Vector2, Rule> matches;
+	public Dictionary<Vector2, Rule> matchesWithoutState;
+}
+
 public class Grid : MonoBehaviour {
 	
 	protected Dictionary<Vector2, GridItem> objectsByPosition = new Dictionary<Vector2, GridItem>();
@@ -87,11 +92,11 @@ public class Grid : MonoBehaviour {
 		this.rules.Add (Rule.generateRule (this.itemTypes));
 		//this.rules.Add (Rule.generateRule (this.itemTypes));
 
-		foreach (var rule in this.rules) {
+		/*foreach (var rule in this.rules) {
 			foreach (var cell in rule.pattern) {
 				Debug.Log (cell);
 			}
-		}
+		}*/
 
 		if (this.ruleDisplayer) {
 			var r = this.ruleDisplayer.GetComponent<RuleDisplay> ();
@@ -117,13 +122,32 @@ public class Grid : MonoBehaviour {
 		if (this.gridEnabled == false)
 			return;
 		this.gridEnabled = false;
-		// Todo: check whether it is actually THIS grid that should do the processing. 
-		// Maybe a submit button game object on this grid? Could do once we have multiple grids
-		this.processScore ();
 
+		GridScoreResult scoreResult = this.processScore ();
+
+		if (this.scoreScript) {
+			this.scoreScript.UpdateScore (scoreResult.matches, scoreResult.matchesWithoutState);
+		}
+
+		var allPointsMatched = new Dictionary<Vector2, bool> ();
+		foreach (var score in scoreResult.matches) {
+			foreach (var cell in score.Value.pattern) {
+				Vector2 key = cell.Key + score.Key;
+				if (allPointsMatched.ContainsKey(key) == false) allPointsMatched.Add (key, true);
+			}
+		}
+		foreach (var item in this.objectsByPosition) {
+			if (item.Value.used == false)
+				continue;
+			if (allPointsMatched.ContainsKey (item.Key)) {
+				item.Value.Hide(true);
+			} else {
+				item.Value.Hide(false);
+			}
+		}
 		Invoke("populateGridAnimated", this.gridCompleteDisappearTime);
 	}
-	private void processScore () {
+	private GridScoreResult processScore () {
 		
 		var matches = new Dictionary<Vector2, Rule>();
 		var matchesWithoutState = new Dictionary<Vector2, Rule>();
@@ -175,20 +199,20 @@ public class Grid : MonoBehaviour {
 		}
 
 		//Debug.Log ("=== MATCHES D-F " + matches.Count + " - " + matchesWithoutState.Count);
-
+		/*
 		Debug.Log ("=== MATCHES WITHOUT STATE");
 		foreach (var item in matchesWithoutState) {
 			Debug.Log (item.Key);
 		}
-		/*Debug.Log ("=== MATCHES");
+		Debug.Log ("=== MATCHES");
 		foreach (var item in matches) {
 			Debug.Log (item.Key);
 		}
 		*/
-
-		if (this.scoreScript) {
-			this.scoreScript.UpdateScore (matches, matchesWithoutState);
-		}
+		GridScoreResult result = new GridScoreResult ();
+		result.matches = matches;
+		result.matchesWithoutState = matchesWithoutState;
+		return result;
 
 	}
 
