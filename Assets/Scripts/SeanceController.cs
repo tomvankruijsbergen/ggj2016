@@ -18,7 +18,7 @@ public class SeanceController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-		PlayerPrefs.SetFloat ("intensity", intensity);
+		//PlayerPrefs.SetFloat ("intensity", intensity);
 
 		//ses sinus intensity for purplish glow effect
 		glowIntensity =  (Mathf.Sin(Time.timeSinceLevelLoad * (intensity*10f)) * 0.5f)* (intensity * 0.2f);

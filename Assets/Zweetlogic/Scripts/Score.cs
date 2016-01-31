@@ -14,15 +14,6 @@ public class Score : MonoBehaviour {
 	// Todo: implement this. Allows us to reward getting a perfect score with several rules.
 	//public float bonusMultiplierForMoreRules = 2;
 
-	void Start () {
-		GameLogic.Instance.scoreScript = this;
-	}
-	void Destroy() {
-		if (GameLogic.Instance.scoreScript == this) {
-			GameLogic.Instance.scoreScript = null;
-		}
-	}
-
 	public void UpdateScore(Dictionary<Vector2, Rule> correctMatches, Dictionary<Vector2, Rule> forgottenMatches){
 		float addedScore = 0;
 		addedScore += correctMatches.Count * this.scorePerMatch;
@@ -36,7 +27,6 @@ public class Score : MonoBehaviour {
 	}
 
 	void Update () {
-		float tempScore = this.currentScore;
 		this.currentScore *= Mathf.Pow (this.decaySpeedFactor, Time.deltaTime);
 		this.currentScore -= decaySpeedConstant * Time.deltaTime;
 		if (this.currentScore < 0)
