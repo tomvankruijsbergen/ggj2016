@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class GameLogic : Singleton<GameLogic> {
 
 	public enum ItemStates { Off = 0, On = 1, _All = 2 };
-
+	//public bool useIntensity = true;
 	protected GameLogic() {}
 
 	public void sendSubmitEvent() {
@@ -24,7 +24,8 @@ public class GameLogic : Singleton<GameLogic> {
 		float newIntensity = newScore / 100;
 		if (newIntensity > 1)
 			newIntensity = 1;
-		PlayerPrefs.SetFloat("intensity", newIntensity);
+		//if(useIntensity)
+		//	PlayerPrefs.SetFloat("intensity", newIntensity);
 		if (this.OnScoreChanged != null) this.OnScoreChanged(newScore);
 	}
 
