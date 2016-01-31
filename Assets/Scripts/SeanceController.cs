@@ -22,7 +22,7 @@ public class SeanceController : MonoBehaviour {
 
 		//ses sinus intensity for purplish glow effect
 		glowIntensity =  (Mathf.Sin(Time.timeSinceLevelLoad * (intensity*10f)) * 0.5f)* (intensity * 0.2f);
-		Debug.Log ("glow: " + glowIntensity);
+		//Debug.Log ("glow: " + glowIntensity);
 		PlayerPrefs.SetFloat ("glowIntensity", glowIntensity);
 	}
 }
